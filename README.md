@@ -5,4 +5,4 @@
 
 ![Smart Home Intercom System](https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/best-intercoms-for-your-home-section-5.jpg)
 
-> _case study under construction_
+

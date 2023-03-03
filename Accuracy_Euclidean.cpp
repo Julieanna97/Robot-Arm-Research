@@ -1,3 +1,8 @@
+/*
+    A control algorithm function featuring Euclidean system to measure
+    the accuracy error of a robotic arm
+*/
+
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -8,18 +13,28 @@ using namespace std;
 struct Point {
     double x, y, z;
 
+    // Set point members to constructor
     Point(double x, double y, double z) : x(x), y(y), z(z) {}
 
-    // Euclidean distance between two points
+    // Function that calculates Euclidean distance between two points
     double distanceTo(const Point& other) const {
+        /*
+        measured along:
+        x = eastwest axis
+        y = northsouth axis
+        z = height/elevation
+        */
+
         double dx = x - other.x;
         double dy = y - other.y;
         double dz = z - other.z;
+        
+        // use square root of values x, y, z
         return sqrt(dx * dx + dy * dy + dz * dz);
     }
 };
 
-// A joint of a robot arm
+// sA joint of a robot arm
 struct Joint {
     double angle;
     double length;

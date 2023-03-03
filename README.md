@@ -2,7 +2,4 @@
 # __Robot Arm Research__
 
 <!-- Images -->
-![Robot Arm](https://i.natgeofe.com/n/d7876b99-6d70-4d7e-8956-2bfbe9439bd8/explore-touch-robot-arm-prosthetic-limb_2x3.jpg)
-
-
-
+![Robot Arm](https://qph.cf2.quoracdn.net/main-qimg-65c0ae08ae67c2e0854d5ecb3318f4a0-lq)

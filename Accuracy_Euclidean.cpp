@@ -1,78 +1,29 @@
-/*
-    A control algorithm function featuring Euclidean system to measure
-    the accuracy error of a robotic arm
-*/
-
 #include <iostream>
-#include <vector>
 #include <cmath>
 
 using namespace std;
 
-// A point in 3D space
-struct Point {
-    double x, y, z;
-
-    // Set point members to constructor
-    Point(double x, double y, double z) : x(x), y(y), z(z) {}
-
-    // Function that calculates Euclidean distance between two points
-    double distanceTo(const Point& other) const {
-        /*
-        measured along:
-        x = eastwest axis
-        y = northsouth axis
-        z = height/elevation
-        */
-
-        double dx = x - other.x;
-        double dy = y - other.y;
-        double dz = z - other.z;
-        
-        // use square root of values x, y, z
-        return sqrt(dx * dx + dy * dy + dz * dz);
-    }
-};
-
-// sA joint of a robot arm
-struct Joint {
-    double angle;
-    double length;
-
-    Joint(double angle, double length) : angle(angle), length(length) {}
-
-    // Calculate the position of the end effector given the angles and lengths of the joints
-    Point calculateEndEffector(const vector<Joint>& joints) const {
-        Point position(0, 0, 0);
-        double cumulativeAngle = 0;
-        for (const Joint& joint : joints) {
-            cumulativeAngle += joint.angle;
-            position.x += joint.length * cos(cumulativeAngle);
-            position.y += joint.length * sin(cumulativeAngle);
-        }
-        position.z = joints.back().length;
-        return position;
-    }
-};
+// Function to calculate the Euclidean distance between two points
+double euclidean_distance(double x1, double y1, double z1, double x2, double y2, double z2) {
+    return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2) + pow(z1 - z2, 2));
+}
 
 int main() {
-    // Define the joints of the robot arm
-    vector<Joint> joints = {
-        Joint(0, 5),
-        Joint(0, 5),
-        Joint(0, 5)
-    };
-
-    // Define the target position of the end effector
-    Point target(5, 5, 5);
-
-    // Calculate the current position of the end effector
-    Point current = joints.back().calculateEndEffector(joints);
-
-    // Measure the Euclidean distance between the current and target positions
-    double distance = current.distanceTo(target);
-
-    cout << "The Euclidean distance between the current and target positions is " << distance << endl;
-
+    // Define the target point in 3D space
+    double target_x = 10.0;
+    double target_y = 5.0;
+    double target_z = 7.0;
+    
+    // Move the robot arm to the target point and record the measured point
+    double measured_x = 9.8;
+    double measured_y = 4.9;
+    double measured_z = 7.2;
+    
+    // Calculate the Euclidean distance between the target point and the measured point
+    double distance = euclidean_distance(target_x, target_y, target_z, measured_x, measured_y, measured_z);
+    
+    // Output the distance as a measure of the accuracy of the robot arm
+    cout << "Distance: " << distance << endl;
+    
     return 0;
 }

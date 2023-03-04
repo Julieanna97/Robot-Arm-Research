@@ -5,10 +5,10 @@
 using namespace std;
 
 // Define the signals to control the robot arm
-const int SIGNAL_UP    = 1 << 0; // 0b00000001
-const int SIGNAL_DOWN  = 1 << 1; // 0b00000010
-const int SIGNAL_LEFT  = 1 << 2; // 0b00000100
-const int SIGNAL_RIGHT = 1 << 3; // 0b00001000
+const int SIGNAL_UP    = 1 << 0; // 00000001b
+const int SIGNAL_DOWN  = 1 << 1; // 00000010b
+const int SIGNAL_LEFT  = 1 << 2; // 00000100b
+const int SIGNAL_RIGHT = 1 << 3; // 00001000b
 
 // Function to read signals from mobile app (replace with actual code)
 int read_signals_from_mobile_app() {

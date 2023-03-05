@@ -13,7 +13,7 @@ const int SIGNAL_RIGHT = 1 << 3; // 00001000b
 // Function to read signals from mobile app (replace with actual code)
 int read_signals_from_mobile_app() {
     // For example, if the signals are sent as a binary string
-    string signals_str = "0100"; // Up and right signals are active
+    string signals_str = "0100"; // Up and left signals are active
     int signals = stoi(signals_str, nullptr, 2);
     return signals;
 }
